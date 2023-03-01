@@ -8,7 +8,7 @@ app.use(express.json());
 const customers = [];
 
 app.post("/account", (req, res) => {
-  const { cpf, name  } = req.body.cpf;
+  const { cpf, name  } = req.body;
 
   const customerAlreadyExists = customers.some(
     (customer) => customer.cpf === cpf
@@ -28,13 +28,13 @@ app.post("/account", (req, res) => {
   return res.status(201).send();
 });
 
-app.get("/statement/:cpf", (req, res) => {
+app.get("/statement", (req, res) => {
   const { cpf } = req.headers;
 
-  const customer = customers.find(customer => customer.cpf === cpf);
+  const customer = customers.find((customer) => customer.cpf === cpf);
 
   if (!customer) {
-    return res.status(400).json({ error: "Customer not found" });
+    return res.status(400).json({ error: "Usuário não existe" });
   }
 
   return res.json(customer.statement);
