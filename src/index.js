@@ -1,4 +1,3 @@
-const { request, response } = require("express");
 const express = require("express");
 const { v4: uuidv4 } = require("uuid");
 
@@ -62,9 +61,9 @@ app.get("/statement", verifyIfExistAccountCPF, (req, res) => {
   return res.json(customer.statement);
 });
 
-app.get("/statement/date", verifyIfExistAccountCPF, (request, response) => {
-  const { customer } = request;
-  const { date } = request.query;
+app.get("/statement/date", verifyIfExistAccountCPF, (req, res) => {
+  const { customer } = req;
+  const { date } = req.query;
 
   const dateFormat = new Date(date + " 00:00");
 
@@ -74,7 +73,7 @@ app.get("/statement/date", verifyIfExistAccountCPF, (request, response) => {
       new Date(dateFormat).toDateString()
   );
 
-  return response.json(customer.statement);
+  return res.json(customer.statement);
 });
 
 app.post("/deposit", verifyIfExistAccountCPF, (req, res) => {
