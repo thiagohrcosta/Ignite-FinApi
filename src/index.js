@@ -1,4 +1,4 @@
-const { request } = require("express");
+const { request, response } = require("express");
 const express = require("express");
 const { v4: uuidv4 } = require("uuid");
 
@@ -114,5 +114,14 @@ app.post("/withdraw", verifyIfExistAccountCPF, (req, res) => {
 
   return res.status(201).send();
 });
+
+app.patch("/account", verifyIfExistAccountCPF, (req, res) => {
+  const { name } = req.body;
+  const { customer } = req;
+
+  customer.name = name;
+
+  return res.status(201).send();
+})
 
 app.listen(3333);
