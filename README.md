@@ -18,3 +18,29 @@
  - It must not be possible to withdraw to a non-existing account
  - It must    not be possible to delete a non-existing account It should not be
    possible to withdraw when the balance is insufficient
+
+## Endpoints
+
+- Balance
+	* [GET]  url/balance
+- Withdraw
+	* [POST] url/withdraw
+	* `{amount: 1000}`
+- DEPOSIT
+	* [POST] url/deposit
+	* `{
+	"description": "Ignite Deposit",
+	"amount": 3500
+}`
+- STATEMENT
+	* [GET] ur/statement
+	* [GET] url/statement/date
+- ACCOUNT
+	* [GET] url/account
+	* [POST] url/account
+	`{ "cpf": "00000000000",
+	 "name": "John Doe"}`
+	* [PATCH] url/account
+	* `{"name": "Jonny Doe"}`
+	* [DELETE] url/account
+	`headers: { cpf: 00000000000 }`
