@@ -24,23 +24,15 @@
 - Balance
 	* [GET]  url/balance
 - Withdraw
-	* [POST] url/withdraw
-	* `{amount: 1000}`
+	* [POST] url/withdraw `{amount: 1000}`
 - DEPOSIT
-	* [POST] url/deposit
-	* `{
-	"description": "Ignite Deposit",
-	"amount": 3500
-}`
+	* [POST] url/deposit `{"description": "Ignite Deposit", "amount": 3500 }`
 - STATEMENT
 	* [GET] ur/statement
 	* [GET] url/statement/date
 - ACCOUNT
 	* [GET] url/account
-	* [POST] url/account
-	`{ "cpf": "00000000000",
+	* [POST] url/account `{ "cpf": "00000000000",
 	 "name": "John Doe"}`
-	* [PATCH] url/account
-	* `{"name": "Jonny Doe"}`
-	* [DELETE] url/account
-	`headers: { cpf: 00000000000 }`
+	* [PATCH] url/account * `{"name": "Jonny Doe"}`
+	* [DELETE] url/account `headers: { cpf: 00000000000 }`
